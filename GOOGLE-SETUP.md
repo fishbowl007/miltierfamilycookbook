@@ -1,15 +1,13 @@
-# Google deployment connection
+# Publish the cookbook from GitHub to Google
 
-Status: GitHub source is prepared; automatic deployment is not connected yet.
+The workflow publishes changes to main, or a manual run on main, to the existing Google app and keeps the shared URL. Changes on review branches do not deploy. Add the encrypted repository secret CLASPRC_JSON containing the Google clasp authorization before enabling the first deployment. Never commit that credential or paste it into a chat.
 
-The static app source is index.html, styles.css, app.js, and recipes.js. The google-apps-script directory contains the bundled copy currently used for Google hosting. Until a build step is configured, changes to the static source must also be applied to that bundle before Google deployment.
+Edit recipes.js for new recipes. The build script regenerates google-apps-script/Index.html from the static source before each deployment, so the two copies stay consistent. Run `node scripts/build-google.mjs` to check the recipe structure and generate the Google page locally.
 
-Next steps:
-1. Enable the Apps Script API in https://script.google.com/home/usersettings . This allows authorized tools to manage Apps Script projects.
-2. Authorize Google's clasp tool using the Google account that owns the existing project. This requires a supported Node.js installation and an interactive Google sign-in.
-3. Store the resulting clasp credentials in a GitHub Actions encrypted repository secret, never in repository files or chat. The authorization can manage Apps Script projects for that account; review its scope before approving.
-4. Configure and test a workflow that builds the Google HTML bundle, pushes to the existing Script ID, and updates the existing deployment ID so the shared URL stays the same.
+The Google manifest matches the existing app: America/New_York, V8, runs as the deploying owner, and public access. Publishing replaces the Google editor files with this repository's google-apps-script directory. Keep future changes in GitHub so manual Google editor changes are not overwritten.
 
-No credentials or automated deployment workflow are included in this initial change. GitHub changes do not yet update the Google-hosted app.
+The authorization currently belongs to the Google account that owns the cookbook. It includes the permissions approved during clasp sign-in and is not restricted to this one script. Store it only as an encrypted GitHub Actions secret. Revoke it through Google Account connections if no longer needed. If it expires or is revoked, repeat sign-in and replace the secret. Workflow logs should never print the credential.
+
+To publish: review and merge the cookbook pull request. Open the repository Actions tab and check that Publish cookbook to Google succeeds. Then open the existing web app URL and verify the update. The first end-to-end deployment must still be tested after the secret is saved.
 
 Reference: https://developers.google.com/apps-script/guides/clasp
