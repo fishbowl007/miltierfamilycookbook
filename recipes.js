@@ -170,5 +170,112 @@ window.RECIPES = [
       "Baked ham",
       "Green beans"
     ]
+  },
+  {
+    "id": "pappys-sauce",
+    "title": "Pappy’s Sauce",
+    "category": "Sides",
+    "createdBy": "Pappy",
+    "servings": 20,
+    "time": "2½ hours simmering, plus preparation",
+    "story": "Uploaded by Dad.",
+    "tags": [
+      "sauce",
+      "tomato",
+      "pasta",
+      "italian"
+    ],
+    "ingredients": [
+      {
+        "q": 1,
+        "u": "tbsp",
+        "i": "olive oil"
+      },
+      {
+        "q": 0.75,
+        "u": "cup",
+        "i": "chopped onion"
+      },
+      {
+        "q": 0.25,
+        "u": "cup",
+        "i": "minced garlic"
+      },
+      {
+        "q": 56,
+        "u": "oz",
+        "i": "crushed tomatoes (assumed two 28-oz large cans for the original batch)"
+      },
+      {
+        "q": 29,
+        "u": "oz",
+        "i": "tomato sauce (assumed one large can for the original batch)"
+      },
+      {
+        "q": 3,
+        "u": "oz",
+        "i": "tomato paste (half of a 6-oz small can for the original batch)"
+      },
+      {
+        "q": 1,
+        "u": "cup",
+        "i": "red wine"
+      },
+      {
+        "q": 0.5,
+        "u": "tbsp",
+        "i": "oregano"
+      },
+      {
+        "q": 0.5,
+        "u": "tbsp",
+        "i": "basil"
+      },
+      {
+        "q": 0.25,
+        "u": "cup",
+        "i": "parsley"
+      },
+      {
+        "q": 0.25,
+        "u": "cup",
+        "i": "Romano cheese"
+      },
+      {
+        "q": 0.5,
+        "u": "tbsp",
+        "i": "sugar"
+      },
+      {
+        "q": null,
+        "u": "",
+        "i": "salt to taste"
+      },
+      {
+        "q": null,
+        "u": "",
+        "i": "pepper to taste"
+      }
+    ],
+    "steps": [
+      "Sauté the garlic and onions in the olive oil.",
+      "Add the wine and crushed tomatoes and mix.",
+      "Add the tomato sauce, tomato paste, and all remaining ingredients.",
+      "Simmer over low heat for 2½ hours."
+    ],
+    "swaps": [
+      "Parmesan can replace the Romano cheese.",
+      "Unsalted vegetable broth can replace the red wine, though the flavor will differ."
+    ],
+    "extras": [
+      "Add crushed red pepper flakes for heat.",
+      "Add sautéed mushrooms for extra texture."
+    ],
+    "pairs": [],
+    "pairIdeas": [
+      "Spaghetti",
+      "Garlic bread",
+      "Green salad"
+    ]
   }
 ];
