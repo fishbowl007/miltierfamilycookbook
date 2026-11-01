@@ -73,5 +73,102 @@ window.RECIPES = [
       "Green salad",
       "Beef stew"
     ]
+  },
+  {
+    "id": "grandmas-sweet-potato-casserole",
+    "title": "Grandma’s Sweet Potato Casserole",
+    "category": "Sides",
+    "createdBy": "Grandma",
+    "servings": 16,
+    "time": "30–40 minutes baking, plus preparation",
+    "story": "",
+    "tags": [
+      "sweet-potato",
+      "casserole",
+      "holiday",
+      "sides"
+    ],
+    "ingredients": [
+      {
+        "q": 95,
+        "u": "oz",
+        "i": "canned sweet potatoes (assumed two 40-oz cans and one 15-oz can for the original batch)"
+      },
+      {
+        "q": 1,
+        "u": "stick",
+        "i": "butter, for the casserole"
+      },
+      {
+        "q": 1,
+        "u": "cup",
+        "i": "sugar"
+      },
+      {
+        "q": 2,
+        "u": "",
+        "i": "eggs, well beaten"
+      },
+      {
+        "q": 0.5,
+        "u": "cup",
+        "i": "milk"
+      },
+      {
+        "q": 1,
+        "u": "tsp",
+        "i": "vanilla"
+      },
+      {
+        "q": 0.5,
+        "u": "tsp",
+        "i": "salt"
+      },
+      {
+        "q": 0.5,
+        "u": "stick",
+        "i": "butter, for the topping"
+      },
+      {
+        "q": 1,
+        "u": "cup",
+        "i": "brown sugar, for the topping"
+      },
+      {
+        "q": 1,
+        "u": "cup",
+        "i": "chopped nuts, for the topping"
+      },
+      {
+        "q": 0.5,
+        "u": "cup",
+        "i": "flour, for the topping"
+      }
+    ],
+    "steps": [
+      "Preheat the oven to 350°F.",
+      "Cream the casserole butter and sugar together. Mix in the beaten eggs.",
+      "In a separate bowl, mix the sweet potatoes with the remaining casserole ingredients.",
+      "Combine with the butter, sugar, and egg mixture.",
+      "Pour into a greased pan.",
+      "For the topping, cream the topping butter and brown sugar together.",
+      "Add the flour and chopped nuts to the topping mixture.",
+      "Pour the topping over the sweet potato mixture.",
+      "Bake for 30–40 minutes."
+    ],
+    "swaps": [
+      "Pecans or walnuts both work for the chopped nuts.",
+      "A plain unsweetened plant-based milk can replace the milk."
+    ],
+    "extras": [
+      "Add cinnamon to the sweet potato mixture.",
+      "Add a little orange zest to the filling."
+    ],
+    "pairs": [],
+    "pairIdeas": [
+      "Roast turkey",
+      "Baked ham",
+      "Green beans"
+    ]
   }
 ];
