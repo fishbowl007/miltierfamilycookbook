@@ -277,5 +277,111 @@ window.RECIPES = [
       "Garlic bread",
       "Green salad"
     ]
+  },
+  {
+    "id": "pappys-meatballs",
+    "title": "Pappy’s Meatballs",
+    "category": "Mains",
+    "createdBy": "Pappy",
+    "servings": 5,
+    "time": "About 1 hour in sauce, plus preparation and frying",
+    "story": "",
+    "tags": [
+      "meatballs",
+      "italian",
+      "beef",
+      "pork",
+      "veal"
+    ],
+    "ingredients": [
+      {
+        "q": 0.5,
+        "u": "lb",
+        "i": "ground pork"
+      },
+      {
+        "q": 0.5,
+        "u": "lb",
+        "i": "ground veal"
+      },
+      {
+        "q": 0.5,
+        "u": "lb",
+        "i": "ground sirloin"
+      },
+      {
+        "q": 0.5,
+        "u": "cup",
+        "i": "Romano cheese"
+      },
+      {
+        "q": 0.25,
+        "u": "cup",
+        "i": "parsley"
+      },
+      {
+        "q": 1,
+        "u": "tbsp",
+        "i": "minced garlic"
+      },
+      {
+        "q": 1,
+        "u": "cup",
+        "i": "breadcrumbs, for mixing"
+      },
+      {
+        "q": null,
+        "u": "",
+        "i": "extra breadcrumbs, for coating"
+      },
+      {
+        "q": 2,
+        "u": "",
+        "i": "large eggs"
+      },
+      {
+        "q": 1,
+        "u": "tsp",
+        "i": "salt"
+      },
+      {
+        "q": 0.5,
+        "u": "tsp",
+        "i": "pepper"
+      },
+      {
+        "q": 0.5,
+        "u": "",
+        "i": "small onion"
+      },
+      {
+        "q": null,
+        "u": "",
+        "i": "olive oil, for frying"
+      }
+    ],
+    "steps": [
+      "Combine the meat, Romano cheese, parsley, garlic, mixing breadcrumbs, eggs, salt, pepper, and onion. Mix by hand.",
+      "Roll into balls; the original batch makes 15 meatballs.",
+      "Roll the meatballs in the extra breadcrumbs.",
+      "Fry in the olive oil until the outside is lightly browned; the centers will finish cooking in the sauce.",
+      "Add to sauce and check after 1 hour. Do not let the meatballs get too hard."
+    ],
+    "swaps": [
+      "Replace the pork and veal with ground sirloin of the same combined weight, keeping the original sirloin as well.",
+      "Parmesan can replace the Romano cheese."
+    ],
+    "extras": [
+      "Add a little oregano to the mixture.",
+      "Add crushed red pepper flakes for heat."
+    ],
+    "pairs": [
+      "pappys-sauce"
+    ],
+    "pairIdeas": [
+      "Spaghetti with Pappy’s Sauce",
+      "Garlic bread",
+      "Green salad"
+    ]
   }
 ];
