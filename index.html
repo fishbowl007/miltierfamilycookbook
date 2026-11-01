@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="The Miltier family cookbook. Find, save, scale, and print the recipes you love.">
+  <title>Miltier Family Recipes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="recipes.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#recipes">Skip to recipes</a>
+  <header class="site-header"><a class="brand" href="./" aria-label="Miltier Family Recipes home">M<span class="brand-rule"></span><span>MILTIER<br>FAMILY RECIPES</span></a><span class="header-note">A place at our table.</span></header>
+  <main>
+    <section class="intro" aria-labelledby="page-title"><p class="eyebrow">THE FAMILY COOKBOOK</p><h1 id="page-title">Good food.<br>Shared together.</h1><div class="intro-bottom"><p>Our recipes, all in one place.<br>Made to be cooked, shared, and passed around.</p><span class="collection-count" id="total-count">0 recipes in the collection</span></div></section>
+    <section id="recipes" class="collection" aria-label="Recipe collection">
+      <div class="collection-heading"><h2>Find your next favorite.</h2><button id="favorites" class="text-button" aria-pressed="false">♡ Saved recipes</button></div>
+      <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Search recipes, ingredients, or family members</span><input id="search" type="search" placeholder="Search recipes, ingredients, or family members…" autocomplete="off"></label><label class="sort"><span>Sort by</span><select id="sort"><option value="title">Recipe name</option><option value="source">Family member</option></select></label></div>
+      <div class="categories" role="group" aria-label="Filter by category"></div>
+      <p id="result-count" class="result-count" role="status" aria-live="polite"></p>
+      <div id="recipe-grid" class="recipe-grid"></div>
+      <div id="empty" class="empty" hidden><span class="empty-mark" aria-hidden="true">M.</span><h3 id="empty-title"></h3><p id="empty-message"></p><button id="clear-filters" class="button" hidden>Clear filters</button></div>
+    </section>
+  </main>
+  <footer><span>MILTIER FAMILY RECIPES</span><span>From our kitchen to yours.</span></footer>
+  <dialog id="recipe-dialog" aria-labelledby="recipe-title"><div class="dialog-toolbar"><button id="close-recipe" class="text-button">← Back to recipes</button><button id="print-recipe" class="button">Print recipe</button></div><article id="recipe-detail"></article></dialog>
+</body>
+</html>
