@@ -383,5 +383,100 @@ window.RECIPES = [
       "Garlic bread",
       "Green salad"
     ]
+  },
+  {
+    "id": "grandmas-she-crab-soup",
+    "title": "Grandma’s She-Crab Soup",
+    "category": "Mains",
+    "createdBy": "Dad",
+    "servings": 6,
+    "time": "About 20–30 minutes, plus boiling the eggs",
+    "story": "",
+    "tags": [
+      "soup",
+      "crab",
+      "seafood"
+    ],
+    "ingredients": [
+      {
+        "q": 0.25,
+        "u": "cup",
+        "i": "butter"
+      },
+      {
+        "q": 3,
+        "u": "tbsp",
+        "i": "minced onion"
+      },
+      {
+        "q": 0.25,
+        "u": "cup",
+        "i": "all-purpose flour"
+      },
+      {
+        "q": 4,
+        "u": "cups",
+        "i": "half-and-half"
+      },
+      {
+        "q": 0.5,
+        "u": "tsp",
+        "i": "salt"
+      },
+      {
+        "q": 0.5,
+        "u": "tsp",
+        "i": "Worcestershire sauce"
+      },
+      {
+        "q": 0.25,
+        "u": "tsp",
+        "i": "paprika"
+      },
+      {
+        "q": 1,
+        "u": "dash",
+        "i": "Old Bay seasoning"
+      },
+      {
+        "q": 1,
+        "u": "lb",
+        "i": "lump crabmeat"
+      },
+      {
+        "q": 2,
+        "u": "",
+        "i": "hard-boiled eggs"
+      },
+      {
+        "q": null,
+        "u": "",
+        "i": "sherry, optional, to taste"
+      }
+    ],
+    "steps": [
+      "Melt the butter and add the onion.",
+      "Cook over medium heat for 5 minutes, stirring constantly.",
+      "Whisk in the flour until smooth and cook for 1 minute.",
+      "Gradually whisk in the half-and-half.",
+      "Cook over medium heat, whisking constantly, until the mixture is thick and bubbly.",
+      "Stir in the salt and remaining ingredients."
+    ],
+    "swaps": [
+      "Backfin crabmeat can replace lump crabmeat.",
+      "A similar seafood seasoning can replace Old Bay."
+    ],
+    "extras": [
+      "Garnish with chopped chives.",
+      "Add a pinch of cayenne for heat."
+    ],
+    "pairs": [
+      "ray-miltiers-french-baguette"
+    ],
+    "pairIdeas": [
+      "French baguette",
+      "Green salad",
+      "Oyster crackers"
+    ]
   }
 ];
