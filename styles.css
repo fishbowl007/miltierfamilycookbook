@@ -5,3 +5,5 @@
 
 .brand-icon{display:block;width:60px;height:60px;object-fit:contain;flex-shrink:0}
 @media(max-width:460px){.brand-icon{width:50px;height:50px}}
+
+.collection-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.submit-recipe{display:inline-block;border:1px solid #000;background:#fff;color:#000;text-decoration:none;padding:9px 14px;font-size:13px;white-space:nowrap}.submit-recipe:hover{background:#000;color:#fff}@media(max-width:760px){.collection-heading{flex-wrap:wrap}.collection-actions{gap:16px}}
