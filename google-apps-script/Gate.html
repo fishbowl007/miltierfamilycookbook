@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Miltier Family Recipes</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff;color:#000;font:16px/1.6 Arial,sans-serif;padding:24px}.gate{width:100%;max-width:420px;border:1px solid #000;padding:40px 32px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:bold}h1{font:38px/1.15 Georgia,serif;margin:24px 0 16px}p{font-size:14px}label{display:block;font-size:13px;margin-top:28px}input,button{font:inherit;border:1px solid #000;border-radius:0;width:100%;padding:12px;margin-top:8px}input{background:#fff;color:#000}button{background:#000;color:#fff;cursor:pointer;margin-top:16px}button:disabled{cursor:wait}input:focus-visible,button:focus-visible{outline:2px solid #000;outline-offset:3px}.message{min-height:24px;margin-bottom:0}footer{font:italic 14px Georgia,serif;margin-top:32px}
+  </style>
+</head>
+<body>
+  <main class="gate">
+    <div class="eyebrow">MILTIER FAMILY RECIPES</div>
+    <h1>A place at our table.</h1>
+    <p>Enter the family passcode to open the cookbook.</p>
+    <form id="unlock">
+      <label for="passcode">Passcode</label>
+      <input id="passcode" type="password" autocomplete="off" required maxlength="128" autofocus>
+      <button id="enter" type="submit">Open cookbook</button>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </form>
+    <footer>From our kitchen to yours.</footer>
+  </main>
+  <script>
+    const form = document.getElementById('unlock');
+    const button = document.getElementById('enter');
+    const field = document.getElementById('passcode');
+    const message = document.getElementById('message');
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (button.disabled) return;
+      button.disabled = true;
+      button.textContent = 'Opening…';
+      message.textContent = '';
+      const restore = text => {
+        button.disabled = false;
+        button.textContent = 'Open cookbook';
+        message.textContent = text;
+        field.value = '';
+        field.focus();
+      };
+      google.script.run.withSuccessHandler(result => {
+        if (!result || !result.ok) { restore(result && result.message || 'Please try again.'); return; }
+        field.value = '';
+        document.open();
+        document.write(result.html);
+        document.close();
+      }).withFailureHandler(() => restore('Could not open the cookbook. Please try again.')).unlockCookbook(field.value);
+    });
+  </script>
+</body>
+</html>
