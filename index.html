@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Miltier Family Recipes — a home for the recipes worth keeping.">
+  <title>Miltier Family Recipes</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./recipes.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#collection">Skip to recipes</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Miltier Family Recipes home">
+      <span class="brand-mark" aria-hidden="true">M<span class="brand-dot">.</span></span>
+      <span class="brand-name">MILTIER <span>FAMILY RECIPES</span></span>
+    </a>
+    <nav aria-label="Main navigation" class="header-nav">
+      <a href="#collection">THE COLLECTION</a>
+      <a href="#about">OUR TABLE</a>
+      <button class="button button-dark button-small" type="button" id="newRecipeButton">+ ADD RECIPE</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="eyebrow-rule"></span> THE MILTIER FAMILY COOKBOOK</p>
+        <h1 id="heroTitle">Good food.<br>Great <em>memories.</em></h1>
+        <p class="hero-description">A home for the recipes we love, the dishes we share, and the moments we want to remember.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#collection">EXPLORE THE RECIPES <span aria-hidden="true">↗</span></a>
+          <span class="hero-aside">OUR FAMILY. OUR RECIPES.</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="hero-art-top">THE FAMILY<br>ARCHIVE</span>
+        <span class="hero-monogram">M</span>
+        <span class="hero-art-bottom">MADE TO BE SHARED <span>↗</span></span>
+      </div>
+    </section>
+
+    <section class="collection section-wrap" id="collection" aria-labelledby="collectionTitle">
+      <div class="section-intro">
+        <div>
+          <p class="eyebrow">01 / THE RECIPE ARCHIVE</p>
+          <h2 id="collectionTitle">The Collection<span class="heading-period">.</span></h2>
+        </div>
+        <p class="section-description">Find an old favorite. Discover something new. Keep the good ones close.</p>
+      </div>
+      <div class="collection-tools">
+        <label class="search" for="recipeSearch">
+          <span aria-hidden="true" class="search-icon">⌕</span>
+          <span class="sr-only">Search recipes</span>
+          <input id="recipeSearch" type="search" placeholder="Search recipes, ingredients, or family names…" autocomplete="off">
+          <kbd class="search-hint" aria-hidden="true">/</kbd>
+        </label>
+        <button class="button button-outline" id="favoritesToggle" type="button" aria-pressed="false">♡ SAVED RECIPES</button>
+      </div>
+      <div class="filter-row">
+        <div id="categoryFilters" class="category-filters" role="group" aria-label="Filter by category"></div>
+        <p id="resultCount" class="result-count" aria-live="polite"></p>
+      </div>
+      <div id="recipeGrid" class="recipe-grid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <span aria-hidden="true" class="empty-icon">✳</span>
+        <h3 id="emptyTitle">The story starts here.</h3>
+        <p id="emptyMessage">The collection is ready for your family's first recipe.</p>
+        <button id="emptyAction" class="button button-dark" type="button">ADD A FAMILY RECIPE <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="aboutTitle">
+      <div class="section-wrap about-inner">
+        <div><p class="eyebrow">02 / WHY WE KEEP THEM</p><h2 id="aboutTitle">More than<br>just <em>recipes.</em></h2></div>
+        <div class="about-copy"><p>Every family has the dishes that bring everyone back to the table. This is a place to keep ours together — one recipe at a time.</p><button class="text-link" type="button" id="aboutAddButton">CONTRIBUTE A RECIPE <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">MILTIER<span>.</span></div>
+    <p>FAMILY RECIPES · KEPT WITH LOVE, SHARED WITH EVERYONE.</p>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+  <dialog class="recipe-dialog" id="recipeDialog" aria-labelledby="detailTitle">
+    <div class="dialog-shell">
+      <div class="dialog-toolbar"><span class="eyebrow">FROM THE FAMILY COLLECTION</span><button class="icon-button" id="closeRecipeButton" type="button" aria-label="Close recipe">✕</button></div>
+      <div id="recipeDetail"></div>
+    </div>
+  </dialog>
+
+  <dialog class="recipe-dialog editor-dialog" id="editorDialog" aria-labelledby="editorTitle">
+    <div class="dialog-shell">
+      <div class="dialog-toolbar"><span class="eyebrow">ADD TO THE COLLECTION</span><button class="icon-button" id="closeEditorButton" type="button" aria-label="Close editor">✕</button></div>
+      <div class="editor-heading">
+        <h2 id="editorTitle">Your family recipe<span class="heading-period">.</span></h2>
+        <p>Create a recipe draft on this device. Download the updated recipes.js file to add it to the website through GitHub.</p>
+      </div>
+      <form id="recipeForm" class="recipe-form">
+        <div class="form-grid">
+          <label class="field wide">RECIPE NAME <input name="title" required maxlength="120" placeholder="e.g. Sunday Pot Roast"></label>
+          <label class="field">CATEGORY <select name="category" required>
+            <option>Mains</option><option>Sides</option><option>Appetizers</option><option>Breakfast</option><option>Desserts</option><option>Holiday</option>
+          </select></label>
+          <label class="field">RECIPE FROM <input name="createdBy" placeholder="Who shared this?" required maxlength="100"></label>
+          <label class="field">SERVINGS <input name="servings" type="number" min="1" max="1000" step="1" value="4" required></label>
+          <label class="field">TIME <input name="time" maxlength="60" placeholder="e.g. 45 minutes"></label>
+          <label class="field wide">FAMILY STORY (OPTIONAL) <textarea name="story" rows="3" placeholder="A memory about this recipe — only if you want to share one."></textarea></label>
+          <label class="field wide">INGREDIENTS — ONE PER LINE <span class="field-help">Use quantity | unit | ingredient. Example: 0.5 | cup | sugar or 2 | | eggs. For “to taste,” leave quantity blank.</span><textarea name="ingredients" required rows="6" placeholder="1 | lb | ground beef&#10;0.5 | cup | breadcrumbs&#10;2 | | eggs"></textarea></label>
+          <label class="field wide">DIRECTIONS — ONE STEP PER LINE <span class="field-help">Write steps without amounts so servings can scale.</span><textarea name="steps" required rows="5" placeholder="Preheat the oven.&#10;Mix the ingredients.&#10;Bake until done."></textarea></label>
+          <label class="field wide">SWAPS (OPTIONAL, ONE PER LINE) <textarea name="swaps" rows="2"></textarea></label>
+          <label class="field wide">EXTRAS (OPTIONAL, ONE PER LINE) <textarea name="extras" rows="2"></textarea></label>
+          <label class="field wide">PAIRING IDEAS (OPTIONAL, ONE PER LINE) <textarea name="pairIdeas" rows="2"></textarea></label>
+          <label class="field wide">TAGS (OPTIONAL, COMMA-SEPARATED) <input name="tags" placeholder="family, chicken, comfort-food"></label>
+        </div>
+        <p class="form-notice" id="editorStatus" role="status" aria-live="polite"></p>
+        <div class="form-actions">
+          <button class="button button-dark" type="submit">SAVE ON THIS DEVICE ↗</button>
+          <button class="button button-outline" type="button" id="downloadRecipesButton">DOWNLOAD RECIPES.JS ↓</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+</body>
+</html>
