@@ -1,0 +1,52 @@
+name: Publish cookbook to Google
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'styles.css'
+      - 'app.js'
+      - 'recipes.js'
+      - 'google-apps-script/**'
+      - 'scripts/build-google.mjs'
+      - '.github/workflows/deploy-google.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: google-cookbook-production
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate recipes and build Google page
+        run: node scripts/build-google.mjs
+      - name: Install Google publishing tool
+        run: npm install --prefix "$RUNNER_TEMP/clasp" @google/clasp@3.4.1 --ignore-scripts
+      - name: Configure publishing
+        env:
+          CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { writeFileSync } from 'node:fs';
+          if (!process.env.CLASPRC_JSON) throw new Error('Add the CLASPRC_JSON repository secret before publishing.');
+          JSON.parse(process.env.CLASPRC_JSON);
+          writeFileSync(process.env.RUNNER_TEMP + '/clasp-auth.json', process.env.CLASPRC_JSON, { mode: 0o600 });
+          writeFileSync('.clasp.json', JSON.stringify({ scriptId: '18HAxWIzjfdZdkdwfyIS2JviHdO9QzklBp_tl_eSdVA069wPctAnjpmfu', rootDir: 'google-apps-script' }));
+          NODE
+      - name: Update Google project and existing live URL
+        run: |
+          node "$RUNNER_TEMP/clasp/node_modules/@google/clasp/build/src/index.js" --auth "$RUNNER_TEMP/clasp-auth.json" push --force
+          node "$RUNNER_TEMP/clasp/node_modules/@google/clasp/build/src/index.js" --auth "$RUNNER_TEMP/clasp-auth.json" update-deployment AKfycby1Gq-J6cg0PwyxhlgSj3CMJv3_Cw7Df8AmolyuZc16Cd8kVEwNGN10Yb7-y696Eqq0 --description "Cookbook $GITHUB_SHA"
+      - name: Remove runner authorization file
+        if: always()
+        run: rm -f "$RUNNER_TEMP/clasp-auth.json"
